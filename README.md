@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1>
   <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
     <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
   </a>
@@ -6,11 +6,11 @@
   Awesome CV
 </h1>
 
-<p align="center">
+<p>
   LaTeX template for your outstanding job application
 </p>
 
-<div align="center">
+<div>
   <a href="https://www.paypal.me/posquit0">
     <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
   </a>
@@ -94,7 +94,7 @@ $ xelatex {your-cv}.tex
 Or using docker:
 
 ```bash
-$ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc thomasweise/texlive make
+$ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive make
 ```
 
 In either case, this should result in the creation of ``{your-cv}.pdf``
