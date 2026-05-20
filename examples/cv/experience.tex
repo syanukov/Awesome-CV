@@ -11,175 +11,132 @@
 
 %---------------------------------------------------------
   \cventry
-    {Founding Member \& Site Reliability Engineer \& Infrastructure Team Lead} % Job title
-    {Danggeun Pay Inc. (KarrotPay)} % Organization
-    {Seoul, S.Korea} % Location
-    {Mar. 2021 - Present} % Date(s)
+    {Senior Software Engineer II} % Job title
+    {Flink} % Organization
+    {Berlin, Germany} % Location
+    {May 2023 - Present} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Everything that matters.}
-        \item {Designed and provisioned the entire infrastructure on the AWS cloud to meet security compliance and acquire a business license for financial services in Korea.}
-        \item {Continuously improved the infrastructure architecture since launching the service. (currently 3.6 million users)}
-        \item {Established a standardized base for declarative management of infrastructures and service deployments, enabling operational efficiency and consistency. Over 90\% of AWS resources were all managed through standardized terraform modules. All add-ons and service workloads on the Kubernetes cluster were managed on a GitOps basis with Kustomize and ArgoCD.}
-        \item {Saved over 30\% of the overall AWS costs by establishing a quarterly purchasing strategiy for RI (Reserved Instance) and SP (Savings Plan) and by introducing Graviton instances.}
-        \item {Established a core architecture for regulating of outbound DNS traffic in multi-account and multi-VPC environments utilizing AWS Route53 DNS Firewall and FMS. This significantly increased the level of security confidence in the financial sector's segregated environment.}
-        \item {Introduced Okta employee identity solution in the company, establishing security policies and configuring SSO integration with over 20 enterprise systems including AWS, GitHub, Slack, Google Workspace. Set up a Hub and Spoke architecture, enabling a collaborative account structure with the parent company, Daangn Market.}
+        \item[] {\textbf{Purchase Order Send-out System Rewrite}}
+        \item {Redesigned and rebuilt the purchase order send-out system from a Python/Apache Airflow monolith into a suite of Go microservices orchestrated by GCP Cloud Workflows and Cloud Scheduler, significantly improving reliability and operational visibility.}
+        \item {Developed an event-driven purchase order service handling the full order lifecycle with PostgreSQL, gRPC, and GCP Pub/Sub, including pessimistic locking, snapshot-based read consistency, and transactional event publishing.}
+        \item {Built a multi-stage replenishment pipeline (load, validate, generate, publish, report) with GCS-persisted state between stages, enabling reliable retry and recovery at any point in the workflow.}
+        \item {Implemented multi-format file generation (EDI, XLSX, CSV, XML) with multi-channel distribution (SFTP, FTP, email, Transus EDI platform) to 60+ supplier sites across major partners.}
+        \item {Resolved production failures caused by a 100-second execution limit by introducing an asynchronous callback pattern with GCP Workflows, decoupling publish operations from the timeout constraint.}
+        \item {Built a configuration management service that dynamically generates GCP Workflow definitions and Cloud Scheduler jobs from supplier configurations, enabling non-engineering teams to onboard new suppliers without code changes.}
+        \item {Established comprehensive monitoring with automated detection of failed workflows, missed sendout windows, and unsent order summaries, integrated with Slack and Datadog.}
+        \item[] {\textbf{Automated Shelf Placement Optimization}}
+        \item {Designed and built an item planning service that automates product-to-hub shelf assignment, combining country-level defaults with hub-specific overrides, physical dimensions, and sales ranking data to group SKUs into placement modules.}
+        \item {Developed a shelf mapping and optimization service that computes optimal SKU-to-shelf assignments across warehouse hubs, supporting dynamic mapping file processing, auto-assignment of new products, and a transactional outbox for reliable event publishing.}
+        \item {Implementing a multi-objective shelf placement optimizer using Google OR-Tools CP-SAT solver, balancing product demand ranking, space utilization, placement stability, ergonomic shelf height, and accessibility --- deployed as a decoupled HTTP solver service with 3D footprint calculation and module-level isolation.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Site Reliability Engineer} % Job title
-    {Danggeun Market Inc.} % Organization
-    {Seoul, S.Korea} % Location
-    {Feb. 2021 - Mar. 2021} % Date(s)
-    {
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Founding Member \& Director of Infrastructure Division} % Job title
-    {Kasa} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2018 - Jan. 2021} % Date(s)
+    {Senior Software Engineer, Delivery Lead} % Job title
+    {apinity GmbH} % Organization
+    {Munich, Germany} % Location
+    {Dec. 2021 - May 2023} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Designed on-boarding process to guide new engineers, help them to focus on the right tasks, and set expectations to help them be successful at Infrastructure team.}
-        \item {Migrated the orchestration system from DC/OS to Kubernetes which is based on AWS EKS. Managed 3 Kubernetes clusters and 300+ pods. Managed all Kubernetes manifests declaratively with Kustomize and ArgoCD.}
-        \item {Designed and managed complex network configurations on AWS with 4 VPC and 100+ subnets. Separated the development network and operation network according to financial regulations. Established dedicated network connections from AWS VPC to partners' on-premise network based on AWS Direct Connect with secure connection using IPsec VPN. Provisioned OpenVPN servers with LDAP integration.}
-        \item {Provisioned a observability system with Kafka, Elastic Stack(Filebeat, Heartbeat, APM Server, Logstash, Elasticsearch, Kibana). Collected log, uptime, tracing data from hosts, containers, pods and more. The ES cluster which has 9 nodes processed more than 1 billion documents per month. Wrote Terraform module to easily provision ES cluster on AWS EC2 instances.}
-        \item {Provisioned a monitoring system with Kafka, Telegraf, InfluxDB, Grafana. Collected metrics from hosts, containers, pods and more. Wrote Terraform module to easily provision InfluxDB with HA on AWS EC2 instances.}
-        \item {Introduced Kong API Gateway to easily connect all API microservices with a declarative management method based on Terraform and Atlantis to collaborate and audit change history.}
-        \item {Provisioned the Directory Service for employee identity management based on OpenLDAP which guarantees HA with multi-master replication.}
-        \item {Implemented Worker microservices consuming Kafka event topics for email, SMS, Kakaotalk and Slack notification. Developed in-house framework to easily build Kafka consumer microservice with common features including retry on failure, DLQ(Dead Letter Queue), event routing and more.}
-        \item {Introduced Elastic APM to help distributed tracing, trouble-shooting and performance testing in MSA.}
+        \item {Owned the full lifecycle of microservices powering an API management SaaS platform for the insurance industry --- from design and development through testing, deployment, and ongoing maintenance.}
+        \item {Led the migration of inter-service communication from Axon Framework to Apache Kafka and gRPC, improving scalability and decoupling between services.}
+        \item {Introduced a centralized observability stack (Spring Boot Actuator, OpenTelemetry, Grafana with Loki and Tempo), significantly reducing mean time to detection and resolution of production incidents.}
+        \item {Built fully automated CI/CD pipelines on Azure DevOps for containerized applications using Docker, Azure Container Registry, and Kubernetes.}
+        \item {Developed custom Kong Gateway plugins in Go to support platform-specific API routing and authentication requirements.}
+        \item {Coordinated a small external engineering team --- collaborated with the Product Owner on backlog refinement, conducted technical reviews, and served as the primary point of contact for escalations.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Software Architect} % Job title
-    {Omnious. Co., Ltd.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2017 - May 2018} % Date(s)
+    {Senior Software Engineer} % Job title
+    {Enmacc GmbH} % Organization
+    {Munich, Germany} % Location
+    {Nov. 2017 - Sep. 2021} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Provisioned an easily managable hybrid infrastructure(Amazon AWS + On-premise) utilizing IaC(Infrastructure as Code) tools like Ansible, Packer and Terraform.}
-        \item {Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR and Rancher.}
-        \item {Designed an overall service architecture and pipelines of the Machine Learning based Fashion Tagging API SaaS product with the micro-services architecture.}
-        \item {Implemented several API microservices in Node.js Koa and in the serverless AWS Lambda functions.}
-        \item {Deployed a centralized logging environment(ELK, Filebeat, CloudWatch, S3) which gather log data from docker containers and AWS resources.}
-        \item {Deployed a centralized monitoring environment(Grafana, InfluxDB, CollectD) which gather system metrics as well as docker run-time metrics.}
+        \item {Designed and implemented RESTful backend services for a professional OTC energy trading platform used by major European energy market participants.}
+        \item {Drove adoption of Kubernetes and Apache Kafka, improving system resilience and enabling event-driven processing of trading workflows.}
+        \item {Maintained high code quality standards through systematic code reviews, test coverage improvements, and enforcement of engineering best practices.}
+        \item {Conducted technical interviews and onboarded and mentored junior engineers.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Co-founder \& Software Engineer} % Job title
-    {PLAT Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jan. 2016 - Jun. 2017} % Date(s)
+    {Senior Software Engineer} % Job title
+    {Elinvar GmbH} % Organization
+    {Berlin, Germany} % Location
+    {Mar. 2017 - Nov. 2017} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Implemented RESTful API server for car rental booking application(CARPLAT in Google Play).}
-        \item {Built and deployed overall service infrastructure utilizing Docker container, CircleCI, and several AWS stack(Including EC2, ECS, Route 53, S3, CloudFront, RDS, ElastiCache, IAM), focusing on high-availability, fault tolerance, and auto-scaling.}
-        \item {Developed an easy-to-use Payment module which connects to major PG(Payment Gateway) companies in Korea.}
+        \item {Developed the integration subsystem of a WealthTech Platform-as-a-Service, connecting its core portfolio calculation engine with custodian banks, market data feeds, and financial news providers.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Researcher} % Job title
-    {Undergraduate Research, Machine Learning Lab(Prof. Seungjin Choi)} % Organization
-    {Pohang, S.Korea} % Location
-    {Mar. 2016 - Exp. Jun. 2017} % Date(s)
+    {Senior Software Engineer} % Job title
+    {Market Logic Software AG} % Organization
+    {Berlin, Germany} % Location
+    {Dec. 2015 - Feb. 2017} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Researched classification algorithms(SVM, CNN) to improve accuracy of human exercise recognition with wearable device.}
-        \item {Developed two TIZEN applications to collect sample data set and to recognize user exercise on SAMSUNG Gear S.}
+        \item {Designed and implemented a data ingestion platform for an AI-powered market intelligence product, aggregating content from diverse sources (email, RSS, SOAP/REST APIs, HTML crawling), transforming it, and indexing it into an Elasticsearch cluster for downstream analytics.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Software Engineer \& Security Researcher (Compulsory Military Service)} % Job title
-    {R.O.K Cyber Command, MND} % Organization
-    {Seoul, S.Korea} % Location
-    {Aug. 2014 - Apr. 2016} % Date(s)
+    {Senior Software Engineer} % Job title
+    {Luxoft Poland. Sp. z o.o.} % Organization
+    {Wroclaw, Poland} % Location
+    {Oct. 2014 - Dec. 2015} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Lead engineer on agent-less backtracking system that can discover client device's fingerprint(including public and private IP) independently of the Proxy, VPN and NAT.}
-        \item {Implemented a distributed web stress test tool with high anonymity.}
-        \item {Implemented a military cooperation system which is web based real time messenger in Scala on Lift.}
+        \item {Designed and developed a monitoring tool for Hazelcast cluster memory management with automated eviction of stale data.}
+        \item {Implemented MapReduce jobs on Apache Hadoop and developed Apache Spark applications to process large volumes of financial data.}
+        \item {Authored Pig scripts for ETL pipelines and contributed to an internal dashboard for real-time job status visualization.}
+        \item {Conducted technical interviews for the engineering team.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Game Developer Intern at Global Internship Program} % Job title
-    {NEXON} % Organization
-    {Seoul, S.Korea \& LA, U.S.A} % Location
-    {Jan. 2013 - Feb. 2013} % Date(s)
+    {Java Developer} % Job title
+    {ISsoft Solutions} % Organization
+    {Minsk, Belarus} % Location
+    {Aug. 2013 - Oct. 2014} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Developed in Cocos2d-x an action puzzle game(Dragon Buster) targeting U.S. market.}
-        \item {Implemented API server which is communicating with game client and In-App Store, along with two other team members who wrote the game logic and designed game graphics.}
-        \item {Won the 2nd prize in final evaluation.}
+        \item {Developed backend services for a restaurant operations platform, enabling order management and workflow automation.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Researcher for <Detecting video’s torrents using image similarity algorithms>} % Job title
-    {Undergraduate Research, Computer Vision Lab(Prof. Bohyung Han)} % Organization
-    {Pohang, S.Korea} % Location
-    {Sep. 2012 - Feb. 2013} % Date(s)
+    {Java Developer} % Job title
+    {Intetics Co.} % Organization
+    {Minsk, Belarus} % Location
+    {Aug. 2012 - Aug. 2013} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Researched means of retrieving a corresponding video based on image contents using image similarity algorithm.}
-        \item {Implemented prototype that users can obtain torrent magnet links of corresponding video relevant to an image on web site.}
+        \item {Built an analytics system that evaluated users' mobile consumption patterns (SMS, voice calls, data usage) across providers, simulated alternative tariff plans, and recommended cost-optimal options.}
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Software Engineer Trainee} % Job title
-    {Software Maestro (funded by Korea Ministry of Knowledge and Economy)} % Organization
-    {Seoul, S.Korea} % Location
-    {Jul. 2012 - Jun. 2013} % Date(s)
+    {Junior Java Developer} % Job title
+    {Artezio} % Organization
+    {Vitebsk, Belarus} % Location
+    {Feb. 2011 - Jun. 2012} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Performed research memory management strategies of OS and implemented in Python an interactive simulator for Linux kernel memory management.}
+        \item {Developed a time-tracking web application for internal project management and resource allocation.}
       \end{cvitems}
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Software Engineer} % Job title
-    {ShitOne Corp.} % Organization
-    {Seoul, S.Korea} % Location
-    {Dec. 2011 - Feb. 2012} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Developed a proxy drive smartphone application which connects proxy driver and customer. Implemented overall Android application logic and wrote API server for community service, along with lead engineer who designed bidding protocol on raw socket and implemented API server for bidding.}
-      \end{cvitems}
-    }
-
-%---------------------------------------------------------
-  \cventry
-    {Freelance Penetration Tester} % Job title
-    {SAMSUNG Electronics} % Organization
-    {S.Korea} % Location
-    {Sep. 2013, Mar. 2011 - Oct. 2011} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Conducted penetration testing on SAMSUNG KNOX, which is solution for enterprise mobile security.}
-        \item {Conducted penetration testing on SAMSUNG Smart TV.}
-      \end{cvitems}
-      %\begin{cvsubentries}
-      %  \cvsubentry{}{KNOX(Solution for Enterprise Mobile Security) Penetration Testing}{Sep. 2013}{}
-      %  \cvsubentry{}{Smart TV Penetration Testing}{Mar. 2011 - Oct. 2011}{}
-      %\end{cvsubentries}
     }
 
 %---------------------------------------------------------
